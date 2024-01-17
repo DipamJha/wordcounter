@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word and Sentence Counter</title>
+    <link rel="stylesheet" href="count.css">
+</head>
+
+<body>
+    <img src="counter.png">
+    <h1>Word and Sentence Counter</h1>
+    
+    <label for="textInput">Enter Text:</label><br>
+    <textarea id="textInput" placeholder="Type your text here..."></textarea><br>
+    
+    <button onclick="countWordsAndSentences()">Count</button><br>
+
+    <div id="result">
+        <p><strong>Word Count:</strong> <span id="wordCount">0</span></p>
+        <p><strong>Sentence Count:</strong> <span id="sentenceCount">0</span></p>
+    </div>
+
+    <script>
+        function countWordsAndSentences() {
+            var textInput = document.getElementById('textInput').value;
+            
+            // Count words
+            var words = textInput.split(/\s+/);
+            var wordCount = words.length;
+
+            // Count sentences
+            var sentences = textInput.split(/[.!?]+/);
+            var sentenceCount = sentences.length - 1;  // Exclude the last empty element
+            
+            // Display results
+            document.getElementById('wordCount').innerText = wordCount;
+            document.getElementById('sentenceCount').innerText = sentenceCount;
+        }
+    </script>
+</body>
+</html>
